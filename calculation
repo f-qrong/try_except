@@ -1,0 +1,32 @@
+while True:
+    try:
+        number_1 = float(input("Please enter the first number: "))
+        number_2 = float(input("Please enter the second number: "))
+
+        operation_choose = input("Please choose a operation (+, -, *, /): ")
+
+        if operation_choose == "+":
+            result = number_1 + number_2
+        elif operation_choose == "-":
+            result = number_1 - number_2
+        elif operation_choose == "*":
+            result = number_1 * number_2
+        elif operation_choose == "/":
+            if number_2 == 0:
+                raise ZeroDivisionError("Cannot divide by zero.")
+            result = number_1 / number_2
+        else:
+            print("Invalid operation. Please enter (+, -, *, /)")
+            continue
+
+    except ValueError:
+        print("Invalid operation. Please enter one of +, -, *, or /.")
+    except ZeroDivisionError as e:
+        print(e)
+    else:
+        print(f"The result is: {result}")
+
+    play_again = input("Do you want to perform another calculation? (yes or no): ").strip().lower()
+    if play_again != "yes":
+        print("Thank you for playing")
+        break
